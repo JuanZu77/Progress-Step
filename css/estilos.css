@@ -1,0 +1,106 @@
+*{
+    box-sizing: border-box;
+    margin: 0; padding: 0;
+} 
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin:0 auto 0 auto;
+    width: 900px;
+    height: 600px;
+    background-color: rgb(203, 195, 195);
+}
+
+/*---------- STYLES ----------------------------------------------------*/
+.progress{
+          background-color: aliceblue;
+          padding: 1.5rem;
+          border-radius: 5px;
+          box-shadow: 1px 1px 1px gray;
+          width: 100%;
+          max-width: 768; 
+          min-width: 320px;
+}
+
+.steps{
+    display: flex;
+    justify-content: space-between;  
+    position: relative; 
+}
+.steP{
+    /*Tamañao Cada Step*/
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%; /*Circular*/
+    border: 2px solid gray;
+
+    /*centrar todo el contebnido en los steps*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*Posicionar Step hacia ARRIBA de la BARRA*/
+    position: relative;
+    z-index: 2;
+}
+
+.steps::before{ 
+        content: "";
+        position: absolute;
+
+        /*centrar la barra*/
+        top:50%;
+        transform: translateY(-50%);
+
+        width: 100%; 
+        height: 5px; 
+        background-color: gray;
+}
+
+.steP.active{  /*STEP ACTIVO*/
+    border-width: 4px;
+    border-color: palevioletred ;
+}
+
+.bar{
+     position: absolute;
+     width: 0%;
+     background-color: aquamarine;
+     height: 5px;
+    /*centrar la barra*/
+    top:50%;
+    transform: translateY(-50%);
+    /*efecto retraso*/
+    transition: 1.5s; 
+}
+
+.navigation{
+    margin-top: 2rem; /*separar step de los botones*/
+    /*Alinear Botones*/
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center; 
+    gap: .5rem; 
+}
+
+.button{
+    margin: .5rem;
+    padding: .5rem;
+    cursor: pointer; 
+    background-color: palevioletred;
+    color: white;
+    border: none;
+    font-size: x-large;
+    border-radius: 4px;
+}
+
+.button:disabled{
+    opacity: .5;
+}
